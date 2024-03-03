@@ -62,6 +62,7 @@
         android:textSize="18sp"
         android:layout_gravity="center"
         android:gravity="end"
+        android:textColor="@color/orange2"
         android:layout_marginTop="12dp"
         android:id="@+id/txtForgtopass"/>
 
@@ -92,6 +93,7 @@
             android:layout_height="wrap_content"
             android:text="Đăng ký"
             android:textSize="18sp"
+            android:textColor="@color/orange2"
             android:id="@+id/txtSignup"/>
     </LinearLayout>
 </LinearLayout>
