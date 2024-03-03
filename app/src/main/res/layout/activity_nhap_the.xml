@@ -23,7 +23,6 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_marginTop="30dp"
-        android:inputType="number"
         android:id="@+id/listBank"
         android:textSize="20sp"/>
     <EditText
@@ -42,7 +41,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="15dp">
         <EditText
-            android:layout_width="230dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Ngày hết hạn (MM/YY)"
             android:paddingLeft="10dp"

@@ -34,8 +34,8 @@ public class ThanhToanActivity extends AppCompatActivity {
         recycThanhtoan=findViewById(R.id.recycThanhtoan);
         recycThanhtoan.setLayoutManager(new LinearLayoutManager(this));
 
-        RecyclerView.ItemDecoration itemDecoration=new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-        recycThanhtoan.addItemDecoration(itemDecoration);
+        //RecyclerView.ItemDecoration itemDecoration=new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
+        //recycThanhtoan.addItemDecoration(itemDecoration);
 
         arrTT=new ArrayList<>();
         thanhtoanAdapter=new ThanhToanAdapter(this, arrTT, new IClickItemTT() {
