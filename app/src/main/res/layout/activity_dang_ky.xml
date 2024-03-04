@@ -82,6 +82,7 @@
             android:layout_height="wrap_content"
             android:text="Đăng nhập"
             android:textSize="18sp"
+            android:textColor="@color/orange2"
             android:id="@+id/txtSignin"/>
     </LinearLayout>
 </LinearLayout>
