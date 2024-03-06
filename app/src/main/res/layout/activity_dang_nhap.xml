@@ -30,7 +30,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Số điện thoại hoặc email"
+            android:hint="Số điện thoại"
             android:textSize="20sp"
             android:id="@+id/editUser"/>
     </LinearLayout>
@@ -74,7 +74,8 @@
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:textSize="18sp"
-        android:id="@+id/btnSignin"/>
+        android:id="@+id/btnSignin"
+        android:backgroundTint="@color/orange2"/>
 
     <LinearLayout
         android:layout_width="match_parent"

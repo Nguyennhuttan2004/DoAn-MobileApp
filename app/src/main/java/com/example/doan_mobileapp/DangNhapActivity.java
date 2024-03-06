@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import Activity.MainActivity;
+
 public class DangNhapActivity extends AppCompatActivity {
     EditText editUser, editSigninPass;
     TextView txtForgotpass, txtSignup;
@@ -19,14 +21,27 @@ public class DangNhapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dang_nhap);
 
         addControl();
+        addEvent();
+
         Intent getInformation = getIntent();
-        String email = getInformation.getStringExtra("email");
-        editUser.setText(email);
+        String sdt = getInformation.getStringExtra("sdt");
+        editUser.setText(sdt);
+
+    }
+
+    private void addEvent() {
         txtSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent openSignup = new Intent(DangNhapActivity.this, DangKyActivity.class);
                 startActivity(openSignup);
+            }
+        });
+        btnSignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openMain = new Intent(DangNhapActivity.this, MainActivity.class);
+                startActivity(openMain);
             }
         });
     }

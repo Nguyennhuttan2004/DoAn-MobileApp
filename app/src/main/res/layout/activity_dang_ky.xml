@@ -33,14 +33,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textSize="20sp"
-        android:layout_marginTop="7dp"
-        android:id="@+id/editEmail"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Mật khẩu"
         android:inputType="textPassword"
         android:textSize="20sp"
