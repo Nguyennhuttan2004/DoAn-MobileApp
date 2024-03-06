@@ -18,23 +18,26 @@
             android:name="Activity.NguoidungActivity"
             android:exported="false" />
         <activity
-            android:name=".DangKyActivity"
-            android:exported="false"></activity>
+            android:name="Activity.DangKyActivity"
+            android:exported="false">
+        </activity>
         <activity
-            android:name=".DangNhapActivity"
-            android:exported="false"></activity>
-        <activity
-            android:name=".ChiTietActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name="Activity.MainActivity"
-            android:exported="true">
+            android:name="Activity.DangNhapActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="Activity.ChiTietActivity"
+            android:exported="false" >
+
+        </activity>
+        <activity
+            android:name="Activity.MainActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>

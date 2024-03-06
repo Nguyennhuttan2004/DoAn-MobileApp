@@ -1,4 +1,4 @@
-package com.example.doan_mobileapp;
+package Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.doan_mobileapp.R;
 
 public class DangNhapActivity extends AppCompatActivity {
     EditText editUser, editSigninPass;

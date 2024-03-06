@@ -11,94 +11,87 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/orange"
         app:titleTextColor="@color/white"
-        app:title="Thong tin ca nhan"
-
-
-        ></androidx.appcompat.widget.Toolbar>
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="108dp"
-        android:layout_height="110dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/img"
-        />
-
-    <Button
-        android:id="@+id/btnAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:text="Thay doi anh dai dien"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Họ Và tên"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/txtUser"
+        app:title="Thông tin cá nhân"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_user"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="108dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img" />
+        <Button
+            android:id="@+id/btnAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Thay đổi ảnh đại diện"
+            android:backgroundTint="@color/orange2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Họ Và tên"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/txtUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/ic_user"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Giới Tính"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/txtGioiTinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/ic_gender"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Email"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/ic_email"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Số điện thoại"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/txtPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_phone"
+            android:textSize="20dp" />
+        <Button
+            android:id="@+id/btnLogOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:text="Đăng xuất"
+            android:backgroundTint="@color/orange2"/>
 
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Giới Tính"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/txtGioiTinh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_gender"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Email"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_email"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Số điện thoại"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/txtPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/ic_phone"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/btnLogOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:text="Đăng xuất"/>
 </LinearLayout>
