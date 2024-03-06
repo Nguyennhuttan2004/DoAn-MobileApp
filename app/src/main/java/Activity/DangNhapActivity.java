@@ -1,6 +1,4 @@
-package Activity;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.doan_mobileapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.doan_mobileapp.R;
 
 public class DangNhapActivity extends AppCompatActivity {
@@ -16,30 +16,19 @@ public class DangNhapActivity extends AppCompatActivity {
     TextView txtForgotpass, txtSignup;
     Button btnSignin;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
 
-        addEvent();
         addControl();
-        //Intent getInformation = getIntent();
-        //String sdt = getInformation.getStringExtra("sdt");
-        //editUser.setText(sdt);
-    }
-
-    private void addEvent() {
+        Intent getInformation = getIntent();
+        String email = getInformation.getStringExtra("email");
+        editUser.setText(email);
         txtSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent openSignup = new Intent(DangNhapActivity.this, DangKyActivity.class);
                 startActivity(openSignup);
-            }
-        });
-        btnSignin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openMain = new Intent(DangNhapActivity.this, MainActivity.class);
-                startActivity(openMain);
             }
         });
     }
