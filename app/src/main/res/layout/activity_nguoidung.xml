@@ -20,98 +20,82 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:orientation="vertical">
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="108dp"
-        android:layout_height="110dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/img" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="108dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/img" />
 
-    <Button
-        android:id="@+id/btnAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:text="Thay đổi ảnh đại diện"
-        android:textSize="17sp"
-        android:backgroundTint="@color/orange2"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Họ và tên"
-        android:textStyle="bold"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/txtUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_user"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Giới Tính"
-        android:textStyle="bold"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/txtGioiTinh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_gender"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Email"
-        android:textStyle="bold"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20dp"
-        android:drawableLeft="@drawable/ic_email"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Số điện thoại"
-        android:textStyle="bold"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/txtPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/ic_phone"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/btnLogOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/orange2"
-        android:text="Đăng xuất"
-        android:textSize="17sp"/>
+        <Button
+            android:id="@+id/btnAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Thay đổi ảnh đại diện"
+            android:textSize="17sp"
+            android:backgroundTint="@color/orange2"/>
+        <Button
+            android:id="@+id/btnPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Thay đổi mật khẩu"
+            android:textSize="17sp"
+            android:backgroundTint="@color/orange2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Họ và tên"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/txtUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/ic_user"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Giới Tính"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/txtGioiTinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/ic_gender"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Số điện thoại"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/txtPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:drawableLeft="@drawable/ic_phone"
+            android:textSize="20dp" />
+        <Button
+            android:id="@+id/btnLogOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/orange2"
+            android:text="Đăng xuất"
+            android:textSize="17sp"/>
     </LinearLayout>
 </LinearLayout>
