@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DangKyActivity"
+    tools:context="Activity.DangKyActivity"
     android:orientation="vertical"
     android:padding="30dp">
 
@@ -55,7 +55,8 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:textSize="18sp"
-        android:id="@+id/btnSignup"/>
+        android:id="@+id/btnSignup"
+        android:backgroundTint="@color/orange2"/>
 
     <LinearLayout
         android:layout_width="match_parent"

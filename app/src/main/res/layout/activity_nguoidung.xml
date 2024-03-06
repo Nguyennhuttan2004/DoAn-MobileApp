@@ -36,7 +36,7 @@
         android:layout_marginTop="15dp"
         android:text="Thay đổi ảnh đại diện"
         android:textSize="17sp"
-        android:backgroundTint="@color/black"/>
+        android:backgroundTint="@color/orange2"/>
 
 
     <TextView
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/orange2"
         android:text="Đăng xuất"
         android:textSize="17sp"/>
     </LinearLayout>

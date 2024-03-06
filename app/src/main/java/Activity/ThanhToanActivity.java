@@ -1,16 +1,19 @@
-package com.example.doan_mobileapp;
+package Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.doan_mobileapp.adapter.ThanhToanAdapter;
-import com.example.doan_mobileapp.interfaceTT.IClickItemTT;
-import com.example.doan_mobileapp.model.ThanhToan;
+import com.example.doan_mobileapp.R;
+
+import Activity.NhapDiaChiActivity;
+import Activity.NhapTheActivity;
+import Activity.adapter.ThanhToanAdapter;
+import Activity.interfaceTT.IClickItemTT;
+import Activity.model.ThanhToan;
 
 import java.util.ArrayList;
 
@@ -49,7 +52,7 @@ public class ThanhToanActivity extends AppCompatActivity {
     private void onClickGoToTT(ThanhToan tt) {
         if (tt.getPtid()==1)
         {
-            Intent it = new Intent(this,NhapTheActivity.class);
+            Intent it = new Intent(this, NhapTheActivity.class);
             startActivity(it);
         }
         else

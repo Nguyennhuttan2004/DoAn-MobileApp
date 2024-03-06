@@ -1,4 +1,6 @@
-package com.example.doan_mobileapp;
+package Activity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,26 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import Activity.MainActivity;
+import com.example.doan_mobileapp.R;
 
 public class DangNhapActivity extends AppCompatActivity {
     EditText editUser, editSigninPass;
     TextView txtForgotpass, txtSignup;
     Button btnSignin;
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
 
-        addControl();
         addEvent();
-
-        Intent getInformation = getIntent();
-        String sdt = getInformation.getStringExtra("sdt");
-        editUser.setText(sdt);
-
+        addControl();
+        //Intent getInformation = getIntent();
+        //String sdt = getInformation.getStringExtra("sdt");
+        //editUser.setText(sdt);
     }
 
     private void addEvent() {
