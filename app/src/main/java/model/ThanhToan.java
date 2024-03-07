@@ -1,4 +1,4 @@
-package Activity.model;
+package model;
 
 import java.io.Serializable;
 

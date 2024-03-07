@@ -1,4 +1,4 @@
-package Activity.adapter;
+package Adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doan_mobileapp.R;
 import Activity.interfaceTT.IClickItemTT;
-import Activity.model.ThanhToan;
+import model.ThanhToan;
 
 import java.util.ArrayList;
 
