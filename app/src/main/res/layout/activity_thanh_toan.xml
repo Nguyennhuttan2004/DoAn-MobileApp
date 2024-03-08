@@ -5,9 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="Activity.ThanhToanActivity"
-    android:orientation="vertical"
-    android:padding="20dp">
-
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/orange"
+        app:titleTextColor="@color/white"
+        app:title="Thông tin cá nhân"
+        android:id="@+id/tbthanhtoan"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

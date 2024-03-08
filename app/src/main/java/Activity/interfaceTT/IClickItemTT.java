@@ -1,7 +1,8 @@
 package Activity.interfaceTT;
 
-import Activity.model.ThanhToan;
+import model.ThanhToan;
 
 public interface IClickItemTT {
     void onClickItemTT(ThanhToan tt);
+
 }

@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toolbar;
+
 
 import com.example.doan_mobileapp.R;
 
-import Activity.NhapDiaChiActivity;
-import Activity.NhapTheActivity;
-import Activity.adapter.ThanhToanAdapter;
 import Activity.interfaceTT.IClickItemTT;
-import Activity.model.ThanhToan;
+import Adapter.ThanhToanAdapter;
+import model.ThanhToan;
 
 import java.util.ArrayList;
 
@@ -21,19 +21,24 @@ public class ThanhToanActivity extends AppCompatActivity {
     RecyclerView recycThanhtoan;
     ThanhToanAdapter thanhtoanAdapter;
     ArrayList<ThanhToan> arrTT;
-
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thanh_toan);
         addControl();
         loadData();
+
+        //toolbar=findViewById(R.id.tbngdung);
+        //setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     private void loadData() {
         arrTT.add(new ThanhToan(1,"Thẻ ngân hàng",R.drawable.icongoogle));
         arrTT.add(new ThanhToan(2,"Tiền mặt",R.drawable.icongoogle));
     }
     private void addControl() {
+
         recycThanhtoan=findViewById(R.id.recycThanhtoan);
         recycThanhtoan.setLayoutManager(new LinearLayoutManager(this));
 
