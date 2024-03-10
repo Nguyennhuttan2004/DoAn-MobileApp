@@ -11,7 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/orange"
         app:titleTextColor="@color/white"
-        app:title="Thông tin cá nhân"
+        app:title=""
         android:id="@+id/tbthanhtoan"/>
     <TextView
         android:layout_width="match_parent"

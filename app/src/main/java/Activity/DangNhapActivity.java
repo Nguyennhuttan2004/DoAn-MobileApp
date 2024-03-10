@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,23 +15,27 @@ import com.example.doan_mobileapp.R;
 import Activity.DangKyActivity;
 
 public class DangNhapActivity extends AppCompatActivity {
-    EditText editUser, editSigninPass;
-    TextView txtForgotpass, txtSignup;
+    EditText editSigninUser, editSigninPass;
+    TextView txtForgtoPass, txtSignup;
     Button btnSignin;
+    ImageView imgSIFB,imgSIGG;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
 
         addControl();
-        addEvent();
-        Intent getInformation = getIntent();
-        String sdt = getInformation.getStringExtra("sdt");
-        editUser.setText(sdt);
-
+        addBtnEvent();
+        Event();
     }
 
-    private void addEvent() {
+    private void Event() {
+        Intent getInformation = getIntent();
+        String email = getInformation.getStringExtra("email");
+        editSigninUser.setText(email);
+    }
+
+    private void addBtnEvent() {
         txtSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,10 +53,12 @@ public class DangNhapActivity extends AppCompatActivity {
     }
 
     private void addControl() {
-        editUser = findViewById(R.id.editUser);
+        editSigninUser = findViewById(R.id.editSigninUser);
         editSigninPass = findViewById(R.id.editSigninPass);
-        txtForgotpass = findViewById(R.id.txtForgtopass);
+        txtForgtoPass = findViewById(R.id.txtForgtoPass);
         txtSignup = findViewById(R.id.txtSignup);
         btnSignin = findViewById(R.id.btnSignin);
+        imgSIFB = findViewById(R.id.imgSIFB);
+        imgSIGG = findViewById(R.id.imgSIGG);
     }
 }

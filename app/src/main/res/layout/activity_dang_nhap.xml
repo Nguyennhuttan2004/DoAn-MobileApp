@@ -2,98 +2,127 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Activity.DangNhapActivity"
+    android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="30dp">
-    <TextView
-        android:layout_width="match_parent"
+    android:padding="30dp"
+    tools:context="Activity.DangNhapActivity" >
+
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Đăng Nhập"
-        android:textSize="35sp"
-        android:layout_gravity="center"/>
-
-    <LinearLayout
+        android:textSize="33sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+    <EditText
+        android:id="@+id/editSigninUser"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="35dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TÊN ĐĂNG NHẬP"
-            android:textSize="15sp"
-            android:paddingLeft="4dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Số điện thoại"
-            android:textSize="20sp"
-            android:id="@+id/editUser"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MẬT KHẨU"
-            android:textSize="15sp"
-            android:paddingLeft="4dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mật khẩu"
-            android:textSize="20sp"
-            android:inputType="textPassword"
-            android:id="@+id/editSigninPass"/>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quên mật khẩu?"
+        android:layout_height="50dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:textSize="18sp"
-        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edittext_background"
+        android:layout_marginTop="15dp"/>
+    <EditText
+        android:id="@+id/editSigninPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:textSize="18sp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edittext_background"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/txtForgtoPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
         android:gravity="end"
+        android:text="Quên mật khẩu?"
         android:textColor="@color/orange2"
-        android:layout_marginTop="12dp"
-        android:id="@+id/txtForgtopass"/>
-
+        android:textSize="18sp" />
     <Button
+        android:id="@+id/btnSignin"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="ĐĂNG NHẬP"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/orange2"
         android:gravity="center"
-        android:textSize="18sp"
-        android:id="@+id/btnSignin"
-        android:backgroundTint="@color/orange2"/>
-
+        android:text="ĐĂNG NHẬP"
+        android:textSize="18sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="Chưa có tài khoản?"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/txtSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng ký"
+            android:textColor="@color/orange2"
+            android:textSize="18sp" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hoặc"
+            android:textSize="18sp"
+            android:layout_margin="10dp"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp">
-        <TextView
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/imgSIFB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chưa có tài khoản?"
-            android:textSize="18sp"
-            android:layout_marginRight="5dp"/>
-        <TextView
+            android:src="@drawable/facebook"
+            android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/imgSIGG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đăng ký"
-            android:textSize="18sp"
-            android:textColor="@color/orange2"
-            android:id="@+id/txtSignup"/>
+            android:src="@drawable/google"
+            android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>

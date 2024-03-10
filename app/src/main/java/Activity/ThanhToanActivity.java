@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toolbar;
-
 
 import com.example.doan_mobileapp.R;
 
@@ -21,30 +21,24 @@ public class ThanhToanActivity extends AppCompatActivity {
     RecyclerView recycThanhtoan;
     ThanhToanAdapter thanhtoanAdapter;
     ArrayList<ThanhToan> arrTT;
-    Toolbar toolbar;
+    //Toolbar tb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thanh_toan);
+        
         addControl();
         loadData();
-
-        //toolbar=findViewById(R.id.tbngdung);
-        //setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     private void loadData() {
         arrTT.add(new ThanhToan(1,"Thẻ ngân hàng",R.drawable.icongoogle));
         arrTT.add(new ThanhToan(2,"Tiền mặt",R.drawable.icongoogle));
     }
     private void addControl() {
-
         recycThanhtoan=findViewById(R.id.recycThanhtoan);
         recycThanhtoan.setLayoutManager(new LinearLayoutManager(this));
-
         //RecyclerView.ItemDecoration itemDecoration=new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         //recycThanhtoan.addItemDecoration(itemDecoration);
-
         arrTT=new ArrayList<>();
         thanhtoanAdapter=new ThanhToanAdapter(this, arrTT, new IClickItemTT() {
             @Override
@@ -53,6 +47,9 @@ public class ThanhToanActivity extends AppCompatActivity {
             }
         });
         recycThanhtoan.setAdapter(thanhtoanAdapter);
+
+        //tb = findViewById(R.id.tbthanhtoan);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     private void onClickGoToTT(ThanhToan tt) {
         if (tt.getPtid()==1)
@@ -66,4 +63,6 @@ public class ThanhToanActivity extends AppCompatActivity {
             startActivity(it);
         }
     }
+
+
 }
