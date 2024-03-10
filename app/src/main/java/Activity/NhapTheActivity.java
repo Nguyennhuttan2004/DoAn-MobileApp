@@ -1,8 +1,10 @@
-package com.example.doan_mobileapp;
+package Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.doan_mobileapp.R;
 
 public class NhapTheActivity extends AppCompatActivity {
 

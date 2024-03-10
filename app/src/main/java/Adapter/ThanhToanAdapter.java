@@ -1,4 +1,4 @@
-package com.example.doan_mobileapp.adapter;
+package Adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -12,8 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doan_mobileapp.R;
-import com.example.doan_mobileapp.interfaceTT.IClickItemTT;
-import com.example.doan_mobileapp.model.ThanhToan;
+import Activity.interfaceTT.IClickItemTT;
+import model.ThanhToan;
 
 import java.util.ArrayList;
 

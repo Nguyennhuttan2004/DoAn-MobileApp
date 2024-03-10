@@ -1,4 +1,4 @@
-package com.example.doan_mobileapp;
+package Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.doan_mobileapp.R;
+
+import Activity.DangKyActivity;
 
 public class DangNhapActivity extends AppCompatActivity {
     EditText editUser, editSigninPass;
@@ -19,14 +23,26 @@ public class DangNhapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dang_nhap);
 
         addControl();
+        addEvent();
         Intent getInformation = getIntent();
-        String email = getInformation.getStringExtra("email");
-        editUser.setText(email);
+        String sdt = getInformation.getStringExtra("sdt");
+        editUser.setText(sdt);
+
+    }
+
+    private void addEvent() {
         txtSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent openSignup = new Intent(DangNhapActivity.this, DangKyActivity.class);
                 startActivity(openSignup);
+            }
+        });
+        btnSignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openMain = new Intent(DangNhapActivity.this, MainActivity.class);
+                startActivity(openMain);
             }
         });
     }

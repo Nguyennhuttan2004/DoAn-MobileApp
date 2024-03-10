@@ -1,4 +1,4 @@
-package com.example.doan_mobileapp.model;
+package model;
 
 import java.io.Serializable;
 
