@@ -15,6 +15,12 @@
             android:title="Tài khoản"
             android:icon="@drawable/icon_user"/>
     </group>
+    <group>
+        <item
+            android:id="@+id/navLogout"
+            android:title="Đăng xuất"
+            android:icon="@drawable/logout"/>
+    </group>
 
 
 </menu>

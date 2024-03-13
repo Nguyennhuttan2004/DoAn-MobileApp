@@ -7,6 +7,9 @@
     tools:context="Activity.MainActivity"
     android:id="@+id/drawerlayout">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,19 +20,21 @@
             android:id="@+id/toolbar"
             app:title="Trang chính"
             app:titleTextColor="@color/white"
-            android:background="@color/orange"
+            android:background="@color/red"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/icon_menu"/>
 
         <EditText
             android:textSize="22sp"
-            android:textColorHint="@color/black"
-            android:background="@color/grey"
+            android:background="@drawable/gray_background"
             android:hint="Tìm kiếm"
             android:layout_margin="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="50dp"
+            android:drawableEnd="@drawable/search_icon"/>
         <ViewFlipper
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -37,23 +42,40 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/orange">
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Best seller"
-                android:textSize="20sp"
+                android:text="Danh mục sản phẩm"
+                android:textSize="25sp"
                 android:layout_margin="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:textStyle="bold"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/recyclerview"/>
+                android:id="@+id/rvCate"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bán chạy nhất"
+                android:textSize="25sp"
+                android:layout_margin="20dp"
+                android:textStyle="bold"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rvBestsell"/>
         </LinearLayout>
     </LinearLayout>
+
+</ScrollView>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationview"
         android:layout_width="250dp"
