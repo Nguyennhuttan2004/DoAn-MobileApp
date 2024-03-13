@@ -6,22 +6,20 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.doan_mobileapp.R;
 
 public class IntroActivity extends AppCompatActivity {
-    Button txtIntroSignup, txtIntroSignin;
+    TextView txtIntroSignin,txtIntroSignup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        addControl();
-        addBtnEvent();
-    }
+        txtIntroSignin=findViewById(R.id.txtIntroSignin);
+        txtIntroSignup=findViewById(R.id.txtIntroSignup);
 
-    private void addBtnEvent() {
         txtIntroSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,11 +34,5 @@ public class IntroActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
-    }
-
-    @SuppressLint("WrongViewCast")
-    private void addControl() {
-        txtIntroSignin = findViewById(R.id.txtIntroSignin);
-        txtIntroSignup = findViewById(R.id.txtIntroSignup);
     }
 }

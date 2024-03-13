@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
-    RecyclerView recyclerView;
+    RecyclerView rvBestsell,rvCate;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     ViewFlipper viewFlipper;
@@ -97,7 +97,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void anhXa() {
         toolbar = findViewById(R.id.toolbar);
-        recyclerView =findViewById(R.id.recyclerview);
+        rvBestsell =findViewById(R.id.rvBestsell);
+        rvCate =findViewById(R.id.rvCate);
         navigationView = findViewById(R.id.navigationview);
         viewFlipper = findViewById(R.id.viewflipper);
         drawerLayout = findViewById(R.id.drawerlayout);

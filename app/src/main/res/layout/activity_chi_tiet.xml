@@ -8,18 +8,19 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/orange"
-        app:title="Chi tiết sản phẩm"
-        app:titleTextColor="@color/white" />
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/orange"
+            app:title="Chi tiết sản phẩm"
+            app:titleTextColor="@color/white">
+    </androidx.appcompat.widget.Toolbar>
 
     <ImageView
         android:src="@drawable/hamburger"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
-        android:layout_margin="10dp"/>
+        android:id="@+id/ivHinhSP"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -33,6 +34,7 @@
             android:gravity="center"
             android:textSize="25sp"
             android:textStyle="bold"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <LinearLayout
@@ -57,9 +59,8 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
         <LinearLayout
-            app:layout_constraintBottom_toBottomOf="parent"
             android:orientation="vertical"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
@@ -75,10 +76,48 @@
                 <TextView
                     android:id="@+id/txtMotachitiet"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:text="“Hôm nay ăn gì?” hay “tối nay ăn gì?” là câu hỏi khiến nhiều chị em nội trợ đau đầu cho bữa cơm hàng ngày của gia đình. Quantrimang.com đã tổng hợp những thực đơn từng bữa, thực đơn theo ngày từ đơn giản, rẻ tiền đến cầu kỳ nổi tiếng được chia sẻ nhiều trên mạng xã hội, mời các bạn tham khảo."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+
             </ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số lượng"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnTru"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_minus" />
+
+                    <TextView
+                        android:id="@+id/txtNumber"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnCong"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_plus"/>
+            </LinearLayout>
         </LinearLayout>
 
         <Button
@@ -88,7 +127,7 @@
             android:text="Thêm vào giỏ hàng"
             android:backgroundTint="@color/orange"
             android:textSize="20sp"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 
