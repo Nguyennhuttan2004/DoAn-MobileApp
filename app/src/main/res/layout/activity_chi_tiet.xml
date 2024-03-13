@@ -11,7 +11,7 @@
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/orange"
+            android:background="@color/red"
             app:title="Chi tiết sản phẩm"
             app:titleTextColor="@color/white">
     </androidx.appcompat.widget.Toolbar>

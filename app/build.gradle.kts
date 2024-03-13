@@ -43,6 +43,7 @@ dependencies {
     implementation ("com.android.volley:volley:1.2.1")
     implementation (platform("com.google.firebase:firebase-bom:32.7.4"))
     implementation ("com.google.firebase:firebase-analytics")
-
+    implementation ("com.google.firebase:firebase-database")
+    implementation ("com.github.bumptech.glide:glide:4.14.2")
 
 }

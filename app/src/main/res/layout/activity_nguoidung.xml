@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/orange"
+        android:background="@color/red"
         app:titleTextColor="@color/white"
         app:title="Thông tin cá nhân"
         android:id="@+id/tbngdung"/>

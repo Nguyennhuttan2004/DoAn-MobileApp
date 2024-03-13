@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -25,9 +26,21 @@ import android.widget.ViewFlipper;
 
 import com.example.doan_mobileapp.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import Activity.interfaceTT.IClickItemSP;
+import Activity.interfaceTT.IClickItemTT;
+import Adapter.BestFoodAdapter;
+import model.SanPham;
+import model.ThanhToan;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
@@ -35,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     ViewFlipper viewFlipper;
+    FirebaseDatabase db;
+    BestFoodAdapter bestFoodAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +59,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionViewFlipper();
         addEvent();
         //onBackPressed();
+        initBestfood();
+    }
+
+    private void initBestfood() {
+        db= FirebaseDatabase.getInstance();
+        DatabaseReference myRef = db.getReference("SanPham");
+        ArrayList<SanPham> list = new ArrayList<>();
+        Query qr = myRef.orderByChild("bestfood").equalTo(true);
+        qr.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for(DataSnapshot issue : snapshot.getChildren()){
+                        list.add(issue.getValue(SanPham.class));
+                    }
+                    if (list.size() >0){
+                        bestFoodAdapter = new BestFoodAdapter(list, new IClickItemSP() {
+                            @Override
+                            public void onClickItemSP(SanPham sp) {
+                                onClickGoToSP(sp);
+                            }
+                        });
+                        rvBestsell.setLayoutManager(new LinearLayoutManager(MainActivity.this,LinearLayoutManager.VERTICAL,false));
+                        rvBestsell.setAdapter(bestFoodAdapter);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void addEvent() {
@@ -110,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(this,"Bạn đang ở trang chính",Toast.LENGTH_SHORT).show();
         }
         else if (item.getItemId()==R.id.navCart){
-            Intent it = new Intent(MainActivity.this, ThanhToanActivity.class);
+            Intent it = new Intent(MainActivity.this, GioHangActivity.class);
             startActivity(it);
         }
         else if (item.getItemId()==R.id.navUser){
@@ -120,5 +168,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
+    private void onClickGoToSP(SanPham sp) {
+            Intent it = new Intent(this, ChiTietActivity.class);
+            startActivity(it);
+    }
 }
