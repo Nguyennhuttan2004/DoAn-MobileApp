@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,11 +17,19 @@ public class ChiTietActivity extends AppCompatActivity {
     TextView txtTensp,txtGiasp,txtMotachitiet,txtNumber;
     ImageButton btnTru,btnCong;
     ImageView ivHinhSP;
+    Toolbar tbDetailSP;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chi_tiet);
         addControls();
+        ToolbarBack();
+    }
+
+    private void ToolbarBack() {
+        tbDetailSP = findViewById(R.id.tbDetailSP);
+        setSupportActionBar(tbDetailSP);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void addControls() {

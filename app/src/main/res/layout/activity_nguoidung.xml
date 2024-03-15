@@ -7,12 +7,12 @@
     android:orientation="vertical"
     tools:context="Activity.NguoidungActivity">
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbNgdung"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/red"
         app:titleTextColor="@color/white"
-        app:title="Thông tin cá nhân"
-        android:id="@+id/tbngdung"/>
+        app:title="Thông tin cá nhân"/>
 
     <LinearLayout
         android:layout_width="match_parent"

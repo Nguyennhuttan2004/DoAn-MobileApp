@@ -17,7 +17,7 @@ public class NguoidungActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nguoidung);
 
-        toolbar=findViewById(R.id.tbngdung);
+        toolbar=findViewById(R.id.tbNgdung);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

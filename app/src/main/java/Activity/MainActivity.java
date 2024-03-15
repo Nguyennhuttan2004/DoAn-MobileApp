@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,9 +37,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import Activity.interfaceTT.IClickItemDM;
 import Activity.interfaceTT.IClickItemSP;
 import Activity.interfaceTT.IClickItemTT;
 import Adapter.BestFoodAdapter;
+import Adapter.CategoryAdapter;
+import model.Category;
 import model.SanPham;
 import model.ThanhToan;
 
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ViewFlipper viewFlipper;
     FirebaseDatabase db;
     BestFoodAdapter bestFoodAdapter;
+    CategoryAdapter categoryAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         addEvent();
         //onBackPressed();
         initBestfood();
+        initCategory();
     }
 
     private void initBestfood() {
@@ -93,6 +99,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
+    private void initCategory() {
+        db= FirebaseDatabase.getInstance();
+        DatabaseReference myRef = db.getReference("Category");
+        ArrayList<Category> listCa = new ArrayList<>();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for(DataSnapshot issue : snapshot.getChildren()){
+                        listCa.add(issue.getValue(Category.class));
+                    }
+                    if (listCa.size() >0){
+                        categoryAdapter = new CategoryAdapter(listCa);
+                        rvCate.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
+                        rvCate.setAdapter(categoryAdapter);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
     private void addEvent() {
 
@@ -111,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-
     private void ActionViewFlipper() {
         ArrayList<String> mangquangcao = new ArrayList<>();
         mangquangcao.add("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Hatch_Green_Chile_Hamburger.jpg/1280px-Hatch_Green_Chile_Hamburger.jpg");
@@ -151,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewFlipper = findViewById(R.id.viewflipper);
         drawerLayout = findViewById(R.id.drawerlayout);
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.navHome){
@@ -169,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
     private void onClickGoToSP(SanPham sp) {
+
             Intent it = new Intent(this, ChiTietActivity.class);
             startActivity(it);
     }

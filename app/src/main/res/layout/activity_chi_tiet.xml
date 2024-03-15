@@ -8,13 +8,12 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
+            android:id="@+id/tbDetailSP"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/red"
             app:title="Chi tiết sản phẩm"
-            app:titleTextColor="@color/white">
-    </androidx.appcompat.widget.Toolbar>
+            app:titleTextColor="@color/white"/>
 
     <ImageView
         android:src="@drawable/hamburger"
