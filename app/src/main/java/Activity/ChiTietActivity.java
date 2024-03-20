@@ -12,12 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.doan_mobileapp.R;
 
 public class ChiTietActivity extends AppCompatActivity {
+
     Toolbar toolbar;
     Button btnThemvaogiohang;
     TextView txtTensp,txtGiasp,txtMotachitiet,txtNumber;
     ImageButton btnTru,btnCong;
     ImageView ivHinhSP;
     Toolbar tbDetailSP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
