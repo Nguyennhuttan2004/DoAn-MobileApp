@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,8 @@ import com.example.doan_mobileapp.R;
 
 import java.util.ArrayList;
 
-import Activity.interfaceTT.IClickItemDM;
-import Activity.interfaceTT.IClickItemSP;
+import Activity.DangNhapActivity;
+import Activity.DanhMucActivity;
 import model.Category;
 import model.SanPham;
 
@@ -77,11 +78,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
         }
         int drawableResourceId=context.getResources().getIdentifier(items.get(position).getHinh(),
                 "drawable",holder.itemView.getContext().getPackageName());
-        Category dm = items.get(position);
+
         Glide.with(context)
                 .load(drawableResourceId)
                 .into(holder.imgCate);
 
+        holder.categoryitems.setOnClickListener(v -> {
+            Intent it = new Intent(context, DanhMucActivity.class);
+            it.putExtra("CategoryTen",items.get(position).getTen());
+            it.putExtra("CategoryID",items.get(position).getId());
+            context.startActivity(it);
+        });
     }
 
     @Override

@@ -19,7 +19,6 @@ import com.example.doan_mobileapp.R;
 import java.util.ArrayList;
 
 import Activity.interfaceTT.IClickItemSP;
-import Activity.interfaceTT.IClickItemTT;
 import model.SanPham;
 
 public class BestFoodAdapter extends RecyclerView.Adapter<BestFoodAdapter.viewholder> {

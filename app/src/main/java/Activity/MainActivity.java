@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,7 +38,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import Activity.interfaceTT.IClickItemDM;
 import Activity.interfaceTT.IClickItemSP;
 import Activity.interfaceTT.IClickItemTT;
 import Adapter.BestFoodAdapter;
@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FirebaseDatabase db;
     BestFoodAdapter bestFoodAdapter;
     CategoryAdapter categoryAdapter;
+    ImageView searchBtn;
+    EditText editSearch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //onBackPressed();
         initBestfood();
         initCategory();
+        setVariable();
+    }
+
+    private void setVariable() {
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text= editSearch.getText().toString().trim();
+                if(text.isEmpty()){
+                    Intent it = new Intent(MainActivity.this, DanhMucActivity.class);
+                    it.putExtra("txt",text);
+                    it.putExtra("isSearch",true);
+                    startActivity(it);
+                }
+            }
+        });
     }
 
     private void initBestfood() {
@@ -92,11 +110,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 }
             }
-
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) {}
         });
     }
     private void initCategory() {
@@ -126,7 +141,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void addEvent() {
-
         navigationView.bringToFront();
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -180,6 +194,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationview);
         viewFlipper = findViewById(R.id.viewflipper);
         drawerLayout = findViewById(R.id.drawerlayout);
+        searchBtn = findViewById(R.id.searchBtn);
+        editSearch = findViewById(R.id.editSearch);
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -198,8 +214,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
     private void onClickGoToSP(SanPham sp) {
-
-            Intent it = new Intent(this, ChiTietActivity.class);
-            startActivity(it);
+        Intent it = new Intent(this, ChiTietActivity.class);
+        startActivity(it);
     }
 }

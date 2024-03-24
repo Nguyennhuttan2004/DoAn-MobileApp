@@ -44,6 +44,16 @@
         android:background="@drawable/edittext_background"
         android:layout_marginTop="15dp"/>
     <EditText
+        android:id="@+id/editSdt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Số điện thoại"
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edittext_background"
+        android:layout_marginTop="15dp"/>
+    <EditText
         android:id="@+id/editSignupPass"
         android:layout_width="match_parent"
         android:layout_height="50dp"
