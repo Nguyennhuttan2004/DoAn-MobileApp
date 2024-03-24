@@ -31,7 +31,13 @@
             android:parentActivityName="Activity.MainActivity" />
         <activity
             android:name="Activity.DangKyActivity"
-            android:exported="false"></activity>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="Activity.DangNhapActivity"
             android:exported="false" />
@@ -41,12 +47,8 @@
             android:parentActivityName="Activity.MainActivity"/>
         <activity
             android:name="Activity.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="Activity.ThanhToanActivity"
