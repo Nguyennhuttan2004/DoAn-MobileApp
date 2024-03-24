@@ -74,6 +74,7 @@ public class DangKyActivity extends AppCompatActivity {
                         }
                         else {
                             Toast.makeText(DangKyActivity.this,"Đăng ký thất bại",Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });

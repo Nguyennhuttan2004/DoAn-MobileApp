@@ -61,7 +61,7 @@
         android:backgroundTint="@color/orange2"
         android:gravity="center"
         android:text="ĐĂNG NHẬP"
-        android:textSize="18sp" />
+        android:textSize="18sp"  />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

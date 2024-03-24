@@ -55,6 +55,7 @@ public class DangNhapActivity extends AppCompatActivity {
                 Intent intent=new Intent(DangNhapActivity.this, DangKyActivity.class);
                 startActivity(intent);
                 finish();
+
             }
         });
 
