@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.doan_mobileapp.R;
 
 import java.util.ArrayList;
 
+import Activity.ChiTietActivity;
 import model.SanPham;
 
 
@@ -39,12 +41,18 @@ public class DanhMucAdapter extends RecyclerView.Adapter<DanhMucAdapter.viewhold
     public void onBindViewHolder(@NonNull DanhMucAdapter.viewholder holder, int position) {
         holder.txtDMtitle.setText(items.get(position).getTen());
         holder.txtDMgia.setText("$"+items.get(position).getGia());
-        holder.txtDMstar.setText(""+items.get(position).getStar());
+        //holder.txtDMstar.setText(""+items.get(position).getStar());
 
         Glide.with(context)
                 .load(items.get(position).getHinh())
                 .transform(new CenterCrop(),new RoundedCorners(30))
                 .into(holder.imgDM);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent it = new Intent(context, ChiTietActivity.class);
+            it.putExtra("sp",items.get(position));
+            context.startActivity(it);
+        });
     }
 
     @Override
@@ -53,14 +61,13 @@ public class DanhMucAdapter extends RecyclerView.Adapter<DanhMucAdapter.viewhold
     }
 
     public class viewholder extends RecyclerView.ViewHolder {
-        TextView txtDMtitle,txtDMgia,txtDMstar;
+        TextView txtDMtitle,txtDMgia;
         ImageView imgDM;
         //CardView danhmucitem;
         public viewholder(@NonNull View itemView) {
             super(itemView);
             txtDMtitle = itemView.findViewById(R.id.txtDMtitle);
             txtDMgia = itemView.findViewById(R.id.txtDMgia);
-            txtDMstar = itemView.findViewById(R.id.txtDMstar);
             imgDM = itemView.findViewById(R.id.imgDM);
             //danhmucitem = itemView.findViewById(R.id.danhmucitem);
         }

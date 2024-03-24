@@ -1,7 +1,6 @@
 package Activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,16 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -38,13 +33,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import Activity.interfaceTT.IClickItemSP;
-import Activity.interfaceTT.IClickItemTT;
 import Adapter.BestFoodAdapter;
 import Adapter.CategoryAdapter;
 import model.Category;
 import model.SanPham;
-import model.ThanhToan;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
@@ -76,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 String text= editSearch.getText().toString().trim();
-                if(text.isEmpty()){
+                if(!text.isEmpty()){
                     Intent it = new Intent(MainActivity.this, DanhMucActivity.class);
                     it.putExtra("txt",text);
                     it.putExtra("isSearch",true);
@@ -99,12 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         list.add(issue.getValue(SanPham.class));
                     }
                     if (list.size() >0){
-                        bestFoodAdapter = new BestFoodAdapter(list, new IClickItemSP() {
-                            @Override
-                            public void onClickItemSP(SanPham sp) {
-                                onClickGoToSP(sp);
-                            }
-                        });
+                        bestFoodAdapter = new BestFoodAdapter(list);
                         rvBestsell.setLayoutManager(new LinearLayoutManager(MainActivity.this,LinearLayoutManager.VERTICAL,false));
                         rvBestsell.setAdapter(bestFoodAdapter);
                     }
@@ -158,9 +145,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     private void ActionViewFlipper() {
         ArrayList<String> mangquangcao = new ArrayList<>();
-        mangquangcao.add("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Hatch_Green_Chile_Hamburger.jpg/1280px-Hatch_Green_Chile_Hamburger.jpg");
-        mangquangcao.add("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg/440px-Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg");
-        mangquangcao.add("https://upload.wikimedia.org/wikipedia/commons/0/00/Mmm..._sometimes_I_just_want_yellow_mustard._Sue_me._%285914352808%29.jpg");
+        mangquangcao.add("https://firebasestorage.googleapis.com/v0/b/doanmobile-db.appspot.com/o/banner1.jpg?alt=media&token=dbcc1357-da9c-4171-a2bc-6d59f250a425");
+        mangquangcao.add("https://firebasestorage.googleapis.com/v0/b/doanmobile-db.appspot.com/o/banner3.jpg?alt=media&token=ef8cf400-9446-47b4-a0a8-07e223e9776d");
+        mangquangcao.add("https://firebasestorage.googleapis.com/v0/b/doanmobile-db.appspot.com/o/banner2.jpg?alt=media&token=2ceda759-236f-4981-ad10-9eba80517769");
         for(int i =0; i< mangquangcao.size();i++){
             ImageView imageView = new ImageView(getApplicationContext());
             Picasso.get().load(mangquangcao.get(i)).into(imageView);

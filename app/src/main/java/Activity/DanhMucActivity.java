@@ -1,15 +1,11 @@
 package Activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.widget.TextView;
 
 import com.example.doan_mobileapp.R;
 import com.google.firebase.database.DataSnapshot;
@@ -23,8 +19,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 
-import Activity.interfaceTT.IClickItemSP;
-import Adapter.BestFoodAdapter;
 import Adapter.DanhMucAdapter;
 import model.SanPham;
 

@@ -38,33 +38,6 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/edtNhap"
-                    android:layout_width="242dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:background="@color/grey"
-                    android:ems="10"
-                    android:hint="Nhập tên sản phẩm"
-                    android:inputType="text"
-                    android:textAlignment="center"
-                    android:textColorHint="@color/black"
-                    android:textSize="14sp" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnTim"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:background="@drawable/red_button_background"
-                    android:text="Tìm" />
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/txtTongdon"

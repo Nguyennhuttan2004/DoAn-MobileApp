@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,16 +19,14 @@ import com.example.doan_mobileapp.R;
 
 import java.util.ArrayList;
 
-import Activity.interfaceTT.IClickItemSP;
+import Activity.ChiTietActivity;
 import model.SanPham;
 
 public class BestFoodAdapter extends RecyclerView.Adapter<BestFoodAdapter.viewholder> {
     ArrayList<SanPham> items;
     Context context;
-    IClickItemSP onClickItemSP;
-    public BestFoodAdapter(ArrayList<SanPham> items,IClickItemSP onClickItemSP){
+    public BestFoodAdapter(ArrayList<SanPham> items){
         this.items=items;
-        this.onClickItemSP=onClickItemSP;
     }
     @NonNull
     @Override
@@ -41,17 +40,17 @@ public class BestFoodAdapter extends RecyclerView.Adapter<BestFoodAdapter.viewho
     public void onBindViewHolder(@NonNull BestFoodAdapter.viewholder holder, int position) {
         holder.txtSPtitle.setText(items.get(position).getTen());
         holder.txtSPgia.setText("$"+items.get(position).getGia());
-        holder.txtSPstar.setText(""+items.get(position).getStar());
+        //holder.txtSPstar.setText(""+items.get(position).getStar());
         SanPham sp = items.get(position);
         Glide.with(context)
                 .load(items.get(position).getHinh())
                 .transform(new CenterCrop(),new RoundedCorners(30))
                 .into(holder.imgSP);
-        holder.bestfooditem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickItemSP.onClickItemSP(sp);
-            }
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent it = new Intent(context, ChiTietActivity.class);
+            it.putExtra("sp",items.get(position));
+            context.startActivity(it);
         });
     }
 
@@ -61,14 +60,13 @@ public class BestFoodAdapter extends RecyclerView.Adapter<BestFoodAdapter.viewho
     }
 
     public class viewholder extends RecyclerView.ViewHolder{
-        TextView txtSPtitle,txtSPgia,txtSPstar;
+        TextView txtSPtitle,txtSPgia;
         ImageView imgSP;
         CardView bestfooditem;
         public viewholder(@NonNull View itemView) {
             super(itemView);
             txtSPtitle = itemView.findViewById(R.id.txtSPtitle);
             txtSPgia = itemView.findViewById(R.id.txtSPgia);
-            txtSPstar = itemView.findViewById(R.id.txtSPstar);
             imgSP = itemView.findViewById(R.id.imgSP);
             bestfooditem = itemView.findViewById(R.id.bestfooditem);
         }

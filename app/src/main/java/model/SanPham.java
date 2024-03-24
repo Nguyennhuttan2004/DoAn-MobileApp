@@ -1,25 +1,25 @@
 package model;
 
-public class SanPham {
+import java.io.Serializable;
+
+public class SanPham implements Serializable {
     private boolean bestfood;
     private double gia;
     private String hinh;
     private int id;
     private String mota;
-    private double star;
     private int styleID;
     private String ten;
     private int numInCart;
 
     public SanPham() {}
 
-    public SanPham(boolean bestfood, double gia, String hinh, int id, String mota, double star, int styleID, String ten, int numInCart) {
+    public SanPham(boolean bestfood, double gia, String hinh, int id, String mota, int styleID, String ten, int numInCart) {
         this.bestfood = bestfood;
         this.gia = gia;
         this.hinh = hinh;
         this.id = id;
         this.mota = mota;
-        this.star = star;
         this.styleID = styleID;
         this.ten = ten;
         this.numInCart = numInCart;
@@ -63,14 +63,6 @@ public class SanPham {
 
     public void setMota(String mota) {
         this.mota = mota;
-    }
-
-    public double getStar() {
-        return star;
-    }
-
-    public void setStar(double star) {
-        this.star = star;
     }
 
     public int getStyleID() {

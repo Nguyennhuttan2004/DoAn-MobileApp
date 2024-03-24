@@ -14,86 +14,88 @@
             android:background="@color/red"
             app:title="Chi tiết sản phẩm"
             app:titleTextColor="@color/white"/>
-
-    <ImageView
-        android:src="@drawable/hamburger"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:id="@+id/ivHinhSP"/>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:src="@drawable/hamburger"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:id="@+id/ivHinhSP"/>
 
-        <TextView
-            android:id="@+id/txtTensp"
-            android:text="Tên sản phẩm"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:text="Giá:"
-                android:textColor="@color/orange2"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"/>
-            <TextView
-                android:id="@+id/txtGiasp"
-                android:text="25.000 đ"
-                android:textColor="@color/orange2"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
             <TextView
-                android:text="Mô tả chi tiết"
-                android:textColor="@color/black"
-                android:textSize="20sp"
+                android:id="@+id/txtTensp"
+                android:text="Tên sản phẩm"
+                android:gravity="center"
+                android:textSize="25sp"
                 android:textStyle="bold"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <ScrollView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="Giá:"
+                    android:textColor="@color/orange2"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"/>
+                <TextView
+                    android:id="@+id/txtGiasp"
+                    android:text="25.000 đ"
+                    android:textColor="@color/orange2"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <TextView
+                    android:text="Mô tả chi tiết"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/txtMotachitiet"
                     android:textColor="@color/black"
                     android:text="“Hôm nay ăn gì?” hay “tối nay ăn gì?” là câu hỏi khiến nhiều chị em nội trợ đau đầu cho bữa cơm hàng ngày của gia đình. Quantrimang.com đã tổng hợp những thực đơn từng bữa, thực đơn theo ngày từ đơn giản, rẻ tiền đến cầu kỳ nổi tiếng được chia sẻ nhiều trên mạng xã hội, mời các bạn tham khảo."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-
-            </ScrollView>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Số lượng"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="30dp"
-                    android:textSize="20dp"
-                    android:textStyle="bold"/>
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Số lượng"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="30dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -116,18 +118,23 @@
                         android:id="@+id/btnCong"
                         android:layout_gravity="center"
                         android:src="@drawable/icon_plus"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <Button
-            android:id="@+id/btnThemvaogiohang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thêm vào giỏ hàng"
-            android:backgroundTint="@color/orange"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp"/>
+            <Button
+                android:id="@+id/btnThemvaogiohang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thêm vào giỏ hàng"
+                android:backgroundTint="@color/orange"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
     </LinearLayout>
+
+
+</ScrollView>
+
 
 
 </LinearLayout>
