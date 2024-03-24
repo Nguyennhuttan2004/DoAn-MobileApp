@@ -23,7 +23,7 @@
         android:textStyle="bold"
         android:layout_marginTop="10dp" />
     <EditText
-        android:id="@+id/editSigninUser"
+        android:id="@+id/edtSignInUser"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Email"
@@ -33,7 +33,7 @@
         android:background="@drawable/edittext_background"
         android:layout_marginTop="15dp"/>
     <EditText
-        android:id="@+id/editSigninPass"
+        android:id="@+id/edtSignInPass"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Mật khẩu"
@@ -43,7 +43,7 @@
         android:background="@drawable/edittext_background"
         android:layout_marginTop="10dp"/>
     <TextView
-        android:id="@+id/txtForgtoPass"
+        android:id="@+id/txtForgotPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -53,7 +53,7 @@
         android:textColor="@color/orange2"
         android:textSize="18sp" />
     <Button
-        android:id="@+id/btnSignin"
+        android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_gravity="center"
@@ -61,7 +61,7 @@
         android:backgroundTint="@color/orange2"
         android:gravity="center"
         android:text="ĐĂNG NHẬP"
-        android:textSize="18sp" />
+        android:textSize="18sp"  />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
             android:text="Chưa có tài khoản?"
             android:textSize="18sp" />
         <TextView
-            android:id="@+id/txtSignup"
+            android:id="@+id/txtSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đăng ký"
@@ -113,13 +113,13 @@
         android:layout_marginTop="10dp"
         android:gravity="center">
         <ImageView
-            android:id="@+id/imgSIFB"
+            android:id="@+id/ivSIFB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/facebook"
             android:layout_weight="1" />
         <ImageView
-            android:id="@+id/imgSIGG"
+            android:id="@+id/ivSIGG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/google"

@@ -34,7 +34,7 @@
             android:parentActivityName="Activity.MainActivity" />
         <activity
             android:name="Activity.DangKyActivity"
-            android:exported="false" />
+            android:exported="false"></activity>
         <activity
             android:name="Activity.DangNhapActivity"
             android:exported="false" />
