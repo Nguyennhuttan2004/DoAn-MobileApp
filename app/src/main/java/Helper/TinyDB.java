@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
-
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+
+import model.SanPham;
 
 
 public class TinyDB {
@@ -192,14 +194,14 @@ public class TinyDB {
 
         return newList;
     }
-    public ArrayList<Foods> getListObject(String key){
+    public ArrayList<SanPham> getListObject(String key){
         Gson gson = new Gson();
 
         ArrayList<String> objStrings = getListString(key);
-        ArrayList<Foods> playerList =  new ArrayList<Foods>();
+        ArrayList<SanPham> playerList =  new ArrayList<SanPham>();
 
         for(String jObjString : objStrings){
-            Foods player  = gson.fromJson(jObjString,  Foods.class);
+            SanPham player  = gson.fromJson(jObjString,  SanPham.class);
             playerList.add(player);
         }
         return playerList;
@@ -354,11 +356,11 @@ public class TinyDB {
         putString(key, gson.toJson(obj));
     }
 
-    public void putListObject(String key, ArrayList<Foods> playerList){
+    public void putListObject(String key, ArrayList<SanPham> playerList){
         checkForNullKey(key);
         Gson gson = new Gson();
         ArrayList<String> objStrings = new ArrayList<String>();
-        for(Foods player: playerList){
+        for(SanPham player: playerList){
             objStrings.add(gson.toJson(player));
         }
         putListString(key, objStrings);

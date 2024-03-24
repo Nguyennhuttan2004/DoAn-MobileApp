@@ -24,7 +24,9 @@
         <activity
             android:name="Activity.GioHangActivity"
             android:exported="false"
-            android:parentActivityName="Activity.MainActivity" />
+            android:parentActivityName="Activity.MainActivity">
+
+        </activity>
         <activity
             android:name="Activity.IntroActivity"
             android:exported="false" />
