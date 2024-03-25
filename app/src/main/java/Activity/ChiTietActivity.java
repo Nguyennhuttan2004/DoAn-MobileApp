@@ -80,12 +80,4 @@ public class ChiTietActivity extends AppCompatActivity {
     private void getIntentExtra() {
         sp = (SanPham) getIntent().getSerializableExtra("sp");
     }
-    private void setVariable() {
-        Glide.with((ChiTietActivity.this))
-                .load(sp.getHinh())
-                .into(ivHinhSP);
-        txtGiasp.setText("$" + sp.getGia());
-        txtTensp.setText(sp.getTen());
-        txtMotachitiet.setText(sp.getMota());
-    }
 }

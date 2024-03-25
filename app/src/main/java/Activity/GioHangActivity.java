@@ -4,6 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -82,14 +87,9 @@ public class GioHangActivity extends AppCompatActivity {
         txtTotal.setText(total+"đ");
     }
 
-    private void ToolbarBack() {
-        tbGiohang = findViewById(R.id.tbGiohang);
-        setSupportActionBar(tbGiohang);
-        ToolbarBack();
-    }
 
     private void ToolbarBack() {
-        setSupportActionBar(tb);
+        setSupportActionBar(tbGiohang);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -105,5 +105,6 @@ public class GioHangActivity extends AppCompatActivity {
         btntt=findViewById(R.id.btntt);
         rvGiohang=findViewById(R.id.rvGiohang);
         scrollViewGH=findViewById(R.id.scrollViewGH);
+        tbGiohang=findViewById(R.id.tbGiohang);
     }
 }
