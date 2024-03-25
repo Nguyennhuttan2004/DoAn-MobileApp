@@ -26,20 +26,14 @@ public class GioHangActivity extends AppCompatActivity {
     Button btntt;
     RecyclerView rvGiohang;
     ScrollView scrollViewGH;
-
     private RecyclerView.Adapter adapter;
     private ManagmentGiohang managmentGiohang;
     private double tax;
 
-    Toolbar tb=findViewById(R.id.tbGiohang);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang);
-
-        tbGiohang=findViewById(R.id.tbGiohang);
-        setSupportActionBar(tbGiohang);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         managmentGiohang=new ManagmentGiohang(this);
         addControls();
@@ -70,8 +64,6 @@ public class GioHangActivity extends AppCompatActivity {
         });
         rvGiohang.setAdapter(adapter);
     }
-
-
     private void calculateCart() {
         double percentTax=0.02;
         double delivery=10;
@@ -86,13 +78,11 @@ public class GioHangActivity extends AppCompatActivity {
         txtDelivery.setText(delivery+"đ");
         txtTotal.setText(total+"đ");
     }
-
-
     private void ToolbarBack() {
+        tbGiohang=findViewById(R.id.tbGiohang);
         setSupportActionBar(tbGiohang);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
     private void setVariable() {
 
     }
@@ -105,6 +95,5 @@ public class GioHangActivity extends AppCompatActivity {
         btntt=findViewById(R.id.btntt);
         rvGiohang=findViewById(R.id.rvGiohang);
         scrollViewGH=findViewById(R.id.scrollViewGH);
-        tbGiohang=findViewById(R.id.tbGiohang);
     }
 }

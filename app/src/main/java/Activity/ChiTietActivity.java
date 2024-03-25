@@ -18,7 +18,7 @@ import Helper.ManagmentGiohang;
 import model.SanPham;
 
 public class ChiTietActivity extends AppCompatActivity {
-    Toolbar toolbar = findViewById(R.id.tbDetailSP);
+    Toolbar toolbar;
     Button btnThemvaogiohang;
     TextView txtTensp,txtGiasp,txtMotachitiet,txtNumber,btnTru,btnCong;
     ImageView ivHinhSP;
@@ -74,6 +74,7 @@ public class ChiTietActivity extends AppCompatActivity {
         ivHinhSP=findViewById(R.id.ivHinhSP);
     }
     private void ToolbarBack() {
+        toolbar = findViewById(R.id.tbDetailSP);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

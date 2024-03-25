@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import com.example.doan_mobileapp.R;
 
 public class NguoidungActivity extends AppCompatActivity {
-    Toolbar toolbar=findViewById(R.id.tbNgdung);
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,7 @@ public class NguoidungActivity extends AppCompatActivity {
     private void addEvent() {
     }
     private void ToolbarBack() {
+        toolbar=findViewById(R.id.tbNgdung);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

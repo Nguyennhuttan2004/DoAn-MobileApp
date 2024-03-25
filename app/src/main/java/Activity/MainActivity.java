@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
-    @Override
+    /*@Override
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -193,5 +193,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent it = new Intent(MainActivity.this, DangNhapActivity.class);
             startActivity(it);
         }
-    }
+    }*/
 }

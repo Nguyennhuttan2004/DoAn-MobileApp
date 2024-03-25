@@ -20,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class DangKyActivity extends AppCompatActivity {
-    EditText edtHoTen,edtEmail,edtPass,edtRePass;
+    EditText edtHoTen,edtEmail,edtPass,edtPhone;
     Button btnSignUp;
     TextView txtSignIn;
     ImageView ivSIFB,ivSIGG;
@@ -38,7 +38,7 @@ public class DangKyActivity extends AppCompatActivity {
         edtHoTen=findViewById(R.id.edtHoTen);
         edtEmail=findViewById(R.id.edtEmail);
         edtPass=findViewById(R.id.edtPass);
-        edtRePass=findViewById(R.id.edtRePass);
+        edtPhone=findViewById(R.id.edtPhone);
         btnSignUp=findViewById(R.id.btnSignUp);
         txtSignIn=findViewById(R.id.txtSignIn);
     }

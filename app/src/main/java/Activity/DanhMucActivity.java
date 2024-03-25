@@ -23,12 +23,12 @@ import Adapter.DanhMucAdapter;
 import model.SanPham;
 
 public class DanhMucActivity extends AppCompatActivity {
-    RecyclerView rvDanhmuc= findViewById(R.id.rvDanhmuc);
+    RecyclerView rvDanhmuc;
     int CategoryID;
     String CategoryTen,searchTxt;
     boolean isSearch;
-    Toolbar tbDM= findViewById(R.id.toolbarDM);
-    FirebaseDatabase db= FirebaseDatabase.getInstance();
+    Toolbar tbDM;
+    FirebaseDatabase db;
     DanhMucAdapter danhMucAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,10 @@ public class DanhMucActivity extends AppCompatActivity {
         ToolbarBack();
         getIntentExtra();
         initDanhmuc();
+        rvDanhmuc= findViewById(R.id.rvDanhmuc);
     }
     private void ToolbarBack() {
+        tbDM= findViewById(R.id.toolbarDM);
         setSupportActionBar(tbDM);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -52,6 +54,7 @@ public class DanhMucActivity extends AppCompatActivity {
         isSearch=getIntent().getBooleanExtra("isSearch",false);
     }
     private void initDanhmuc() {
+        db= FirebaseDatabase.getInstance();
         DatabaseReference myRef = db.getReference("SanPham");
         ArrayList<SanPham> list = new ArrayList<>();
 

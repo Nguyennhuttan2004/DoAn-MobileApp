@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:padding="30dp">
 
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,11 +27,21 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Họ và tên"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textSize="18sp"
         android:paddingLeft="20dp"
         android:background="@drawable/edittext_background"
         android:layout_marginTop="10dp" />
+    <EditText
+        android:id="@+id/edtPhone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Số điện thoại"
+        android:inputType="phone"
+        android:textSize="18sp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edittext_background"
+        android:layout_marginTop="10dp"/>
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
@@ -48,16 +57,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Mật khẩu"
-        android:inputType="textPassword"
-        android:textSize="18sp"
-        android:paddingLeft="20dp"
-        android:background="@drawable/edittext_background"
-        android:layout_marginTop="10dp"/>
-    <EditText
-        android:id="@+id/edtRePass"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Xác nhận mật khẩu"
         android:inputType="textPassword"
         android:textSize="18sp"
         android:paddingLeft="20dp"

@@ -51,29 +51,18 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
                 .load(list.get(position).getHinh())
                 .transform(new CenterCrop(), new RoundedCorners(30))
                 .into(holder.pic);
-        holder.btnPlusCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                managmentGiohang.plusNumberItem(list, position, new ChangeNumberItemsListener() {
-                    @Override
-                    public void change() {
-                        notifyDataSetChanged();
-                        changeNumberItemsListener.change();
-                    }
-                });
-            }
+
+        holder.btnPlusCart.setOnClickListener(v -> {
+            managmentGiohang.plusNumberItem(list, position, () -> {
+                notifyDataSetChanged();
+                changeNumberItemsListener.change();
+            });
         });
-        holder.btnMinusCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                managmentGiohang.minusNumberItem(list, position, new ChangeNumberItemsListener() {
-                    @Override
-                    public void change() {
-                        notifyDataSetChanged();
-                        changeNumberItemsListener.change();
-                    }
-                });
-            }
+        holder.btnMinusCart.setOnClickListener(v -> {
+            managmentGiohang.minusNumberItem(list, position, () -> {
+                notifyDataSetChanged();
+                changeNumberItemsListener.change();
+            });
         });
     }
 
