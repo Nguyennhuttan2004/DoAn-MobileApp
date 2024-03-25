@@ -69,7 +69,7 @@
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/orange2"
+        android:backgroundTint="@color/red"
         android:gravity="center"
         android:text="ĐĂNG KÝ"
         android:textSize="18sp" />
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đăng nhập"
-            android:textColor="@color/orange2"
+            android:textColor="@color/red"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout

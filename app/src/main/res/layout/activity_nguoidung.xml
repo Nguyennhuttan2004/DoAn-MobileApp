@@ -25,7 +25,7 @@
             android:layout_height="110dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:src="@drawable/img" />
+            android:src="@drawable/avatar" />
 
         <Button
             android:id="@+id/btnAvatar"
@@ -35,7 +35,7 @@
             android:layout_marginTop="10dp"
             android:text="Thay đổi ảnh đại diện"
             android:textSize="17sp"
-            android:backgroundTint="@color/orange2"/>
+            android:backgroundTint="@color/red"/>
         <Button
             android:id="@+id/btnPass"
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_marginTop="10dp"
             android:text="Thay đổi mật khẩu"
             android:textSize="17sp"
-            android:backgroundTint="@color/orange2"/>
+            android:backgroundTint="@color/red"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,16 +63,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Giới Tính"
+            android:text="Email"
             android:textStyle="bold"
             android:textSize="20dp"/>
         <TextView
-            android:id="@+id/txtGioiTinh"
+            android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="20dp"
-            android:drawableLeft="@drawable/ic_gender"/>
+            android:drawableLeft="@drawable/icon_gender"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:drawableLeft="@drawable/ic_phone"
+            android:drawableLeft="@drawable/icon_phone"
             android:textSize="20dp" />
         <Button
             android:id="@+id/btnLogOut"
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:backgroundTint="@color/orange2"
+            android:backgroundTint="@color/red"
             android:text="Đăng xuất"
             android:textSize="17sp"/>
     </LinearLayout>

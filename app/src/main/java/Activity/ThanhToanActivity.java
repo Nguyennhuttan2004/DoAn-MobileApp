@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toolbar;
 
 import com.example.doan_mobileapp.R;
 
@@ -31,8 +29,8 @@ public class ThanhToanActivity extends AppCompatActivity {
         loadData();
     }
     private void loadData() {
-        arrTT.add(new ThanhToan(1,"Thẻ ngân hàng",R.drawable.icongoogle));
-        arrTT.add(new ThanhToan(2,"Tiền mặt",R.drawable.icongoogle));
+        arrTT.add(new ThanhToan(1,"Thẻ ngân hàng",R.drawable.icon_google));
+        arrTT.add(new ThanhToan(2,"Tiền mặt",R.drawable.icon_google));
     }
     private void addControl() {
         recycThanhtoan=findViewById(R.id.recycThanhtoan);

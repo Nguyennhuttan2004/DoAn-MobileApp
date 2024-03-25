@@ -11,15 +11,15 @@ import android.widget.TextView;
 import com.example.doan_mobileapp.R;
 
 public class IntroActivity extends AppCompatActivity {
-    TextView txtIntroSignin,txtIntroSignup;
+    TextView txtIntroSignin=findViewById(R.id.txtIntroSignin),txtIntroSignup=findViewById(R.id.txtIntroSignup);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        txtIntroSignin=findViewById(R.id.txtIntroSignin);
-        txtIntroSignup=findViewById(R.id.txtIntroSignup);
-
+        addEvent();
+    }
+    private void addEvent() {
         txtIntroSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

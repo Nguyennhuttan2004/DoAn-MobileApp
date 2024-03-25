@@ -9,13 +9,16 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.doan_mobileapp.R;
 
 public class GioHangActivity extends AppCompatActivity {
-    Toolbar tb;
+    Toolbar tb=findViewById(R.id.tbGiohang);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang);
 
-        tb=findViewById(R.id.tbGiohang);
+        ToolbarBack();
+    }
+
+    private void ToolbarBack() {
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
