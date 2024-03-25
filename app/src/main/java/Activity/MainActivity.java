@@ -64,18 +64,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void setVariable() {
-        searchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String text= editSearch.getText().toString().trim();
-                if(!text.isEmpty()){
-                    Intent it = new Intent(MainActivity.this, DanhMucActivity.class);
-                    it.putExtra("txt",text);
-                    it.putExtra("isSearch",true);
-                    startActivity(it);
-                }
+        searchBtn.setOnClickListener(v -> {
+            String text= editSearch.getText().toString().trim();
+            if(!text.isEmpty()){
+                Intent it = new Intent(MainActivity.this, DanhMucActivity.class);
+                it.putExtra("txt",text);
+                it.putExtra("isSearch",true);
+                startActivity(it);
             }
         });
+        
     }
 
     private void initBestfood() {

@@ -96,28 +96,54 @@
                         android:layout_marginRight="30dp"
                         android:textSize="20dp"
                         android:textStyle="bold"/>
-                    <ImageButton
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btnTru"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_minus" />
+                        app:layout_constraintBottom_toBottomOf="@+id/pic"
+                        app:layout_constraintStart_toStartOf="@+id/txtPrice">
 
-                    <TextView
-                        android:id="@+id/txtNumber"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="0"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnCong"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_plus"/>
+                        <TextView
+                            android:id="@+id/txtNumber"
+                            android:layout_width="24dp"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btnCong"
+                            app:layout_constraintStart_toEndOf="@+id/btnTru"
+                            tools:layout_editor_absoluteY="0dp" />
+
+                        <TextView
+                            android:id="@+id/btnTru"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:text="-"
+                            android:background="@drawable/edittext_background"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/red"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/btnCong"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:text="+"
+                            android:background="@drawable/edittext_background"
+                            android:textColor="@color/red"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/btnTru" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -126,7 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Thêm vào giỏ hàng"
-                android:backgroundTint="@color/orange"
+                android:backgroundTint="@color/red"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>

@@ -3,6 +3,7 @@ package Activity;
 import static com.example.doan_mobileapp.R.id.imageView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,18 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.doan_mobileapp.R;
 
+import Helper.ManagmentGiohang;
 import model.SanPham;
 
 public class ChiTietActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     Button btnThemvaogiohang;
-    TextView txtTensp,txtGiasp,txtMotachitiet,txtNumber;
-    ImageButton btnTru,btnCong;
+    TextView txtTensp,txtGiasp,txtMotachitiet,txtNumber,btnTru,btnCong;
     ImageView ivHinhSP;
     Toolbar tbDetailSP;
     SanPham sp;
-    private int num=1;
+    private int num=0;
+    private ManagmentGiohang managmentGiohang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +40,28 @@ public class ChiTietActivity extends AppCompatActivity {
     }
 
     private void setVariable() {
+        managmentGiohang=new ManagmentGiohang(this);
         Glide.with((ChiTietActivity.this))
                 .load(sp.getHinh())
                 .into(ivHinhSP);
         txtGiasp.setText("$" + sp.getGia());
         txtTensp.setText(sp.getTen());
         txtMotachitiet.setText(sp.getMota());
+
+        btnCong.setOnClickListener(v -> {
+            num=num+1;
+            txtNumber.setText(num+"");
+        });
+        btnTru.setOnClickListener(v -> {
+            if(num>1){
+                num=num-1;
+                txtNumber.setText(num+"");
+            }
+        });
+        btnThemvaogiohang.setOnClickListener(v -> {
+           sp.setNumInCart(num);
+           managmentGiohang.insertFood(sp);
+        });
     }
 
     private void getIntentExtra() {
@@ -65,6 +83,4 @@ public class ChiTietActivity extends AppCompatActivity {
         btnCong=findViewById(R.id.btnCong);
         ivHinhSP=findViewById(R.id.ivHinhSP);
     }
-
-
 }
