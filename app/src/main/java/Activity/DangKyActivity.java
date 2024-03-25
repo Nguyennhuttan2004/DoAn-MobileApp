@@ -31,56 +31,60 @@ public class DangKyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_ky);
 
+        addControl();
+        addEvent();
+    }
+    private void addControl() {
         edtHoTen=findViewById(R.id.edtHoTen);
         edtEmail=findViewById(R.id.edtEmail);
         edtPass=findViewById(R.id.edtPass);
         edtRePass=findViewById(R.id.edtRePass);
         btnSignUp=findViewById(R.id.btnSignUp);
         txtSignIn=findViewById(R.id.txtSignIn);
-
+    }
+    private void addEvent() {
         txtSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(DangKyActivity.this,DangNhapActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
-
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email,password;
-                email = String.valueOf(edtEmail.getText());
-                password = String.valueOf(edtPass.getText());
-
-                if (TextUtils.isEmpty(email)){
-                    Toast.makeText(DangKyActivity.this,"Enter Email",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(password)){
-                    Toast.makeText(DangKyActivity.this,"Enter Password",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(DangKyActivity.this,"Đăng ký thành công",Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(DangKyActivity.this,DangNhapActivity.class);
-                            startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(DangKyActivity.this,"Đăng ký thất bại",Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
+                nhanDangKy();
             }
         });
+    }
+    private void nhanDangKy(){
+        String email = edtEmail.getText().toString().trim();
+        String password = edtPass.getText().toString().trim();
 
+        if (TextUtils.isEmpty(email)){
+            Toast.makeText(DangKyActivity.this,"Hãy nhập email",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)){
+            Toast.makeText(DangKyActivity.this,"Hãy nhập mặt khẩu",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(DangKyActivity.this,"Đăng ký thành công",Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(DangKyActivity.this,DangNhapActivity.class);
+                    intent.putExtra("email",email);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(DangKyActivity.this,"Đăng ký thất bại",Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
     }
 }
 

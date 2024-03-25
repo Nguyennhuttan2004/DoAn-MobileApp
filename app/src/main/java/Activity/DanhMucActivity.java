@@ -23,31 +23,35 @@ import Adapter.DanhMucAdapter;
 import model.SanPham;
 
 public class DanhMucActivity extends AppCompatActivity {
-    RecyclerView rvDanhmuc;
+    RecyclerView rvDanhmuc= findViewById(R.id.rvDanhmuc);
     int CategoryID;
     String CategoryTen,searchTxt;
     boolean isSearch;
-    Toolbar tbDM;
-    FirebaseDatabase db;
+    Toolbar tbDM= findViewById(R.id.toolbarDM);
+    FirebaseDatabase db= FirebaseDatabase.getInstance();
     DanhMucAdapter danhMucAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danh_muc);
 
+        ToolbarBack();
         getIntentExtra();
         initDanhmuc();
-
-        rvDanhmuc = findViewById(R.id.rvDanhmuc);
-
-        tbDM = findViewById(R.id.toolbarDM);
+    }
+    private void ToolbarBack() {
         setSupportActionBar(tbDM);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
+    private void getIntentExtra() {
+        CategoryID=getIntent().getIntExtra("CategoryID",0);
+        CategoryTen=getIntent().getStringExtra("CategoryTen");
 
+        //tbDM.setTitle("");
+        searchTxt=getIntent().getStringExtra("txt");
+        isSearch=getIntent().getBooleanExtra("isSearch",false);
+    }
     private void initDanhmuc() {
-        db = FirebaseDatabase.getInstance();
         DatabaseReference myRef = db.getReference("SanPham");
         ArrayList<SanPham> list = new ArrayList<>();
 
@@ -80,12 +84,5 @@ public class DanhMucActivity extends AppCompatActivity {
         });
     }
 
-    private void getIntentExtra() {
-        CategoryID=getIntent().getIntExtra("CategoryID",0);
-        CategoryTen=getIntent().getStringExtra("CategoryTen");
 
-        //tbDM.setTitle("");
-        searchTxt=getIntent().getStringExtra("txt");
-        isSearch=getIntent().getBooleanExtra("isSearch",false);
-    }
 }

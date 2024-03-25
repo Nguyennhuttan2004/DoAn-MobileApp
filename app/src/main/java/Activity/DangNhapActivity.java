@@ -31,7 +31,10 @@ public class DangNhapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
 
-
+        addControl();
+        addEvent();
+    }
+    private void addControl() {
         edtSignIpUser=findViewById(R.id.edtSignInUser);
         edtSignInPass=findViewById(R.id.edtSignInPass);
         txtForgotPass=findViewById(R.id.txtForgotPass);
@@ -39,56 +42,48 @@ public class DangNhapActivity extends AppCompatActivity {
         btnSignIn=findViewById(R.id.btnSignIn);
         ivSIFB=findViewById(R.id.ivSIFB);
         ivSIGG=findViewById(R.id.ivSIGG);
-
+    }
+    private void addEvent() {
         txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(DangNhapActivity.this,DangKyActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
-
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(DangNhapActivity.this, DangKyActivity.class);
-                startActivity(intent);
-                finish();
-
+                nhanDangNhap();
             }
         });
+    }
+    private void nhanDangNhap() {
+        Intent it = getIntent();
+        String email = it.getStringExtra("email");
+        edtSignIpUser.setText(email);
+        //email = edtSignIpUser.getText().toString().trim();
+        String password = edtSignInPass.getText().toString().trim();
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
+        if (TextUtils.isEmpty(email)){
+            Toast.makeText(DangNhapActivity.this,"Hãy nhập email",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)){
+            Toast.makeText(DangNhapActivity.this,"Hãy nhập mặt khẩu",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View v) {
-                String email,password;
-                email =String.valueOf(edtSignIpUser.getText());
-                password=String.valueOf(edtSignInPass.getText());
-
-                if (TextUtils.isEmpty(email)){
-                    Toast.makeText(DangNhapActivity.this,"Enter Email",Toast.LENGTH_SHORT).show();
-                    return;
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(DangNhapActivity.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(DangNhapActivity.this,MainActivity.class);
+                    startActivity(intent);
                 }
-                if (TextUtils.isEmpty(password)){
-                    Toast.makeText(DangNhapActivity.this,"Enter Password",Toast.LENGTH_SHORT).show();
-                    return;
+                else {
+                    Toast.makeText(DangNhapActivity.this,"Đăng nhập thất bại",Toast.LENGTH_SHORT).show();
                 }
-
-                firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(DangNhapActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(DangNhapActivity.this,MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                        else {
-                            Toast.makeText(DangNhapActivity.this,"Authentication Failed",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
             }
         });
     }

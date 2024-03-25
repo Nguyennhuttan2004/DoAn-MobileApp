@@ -4,11 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ScrollView;
-import android.widget.TextView;
-
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,6 +26,7 @@ public class GioHangActivity extends AppCompatActivity {
     private ManagmentGiohang managmentGiohang;
     private double tax;
 
+    Toolbar tb=findViewById(R.id.tbGiohang);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +85,11 @@ public class GioHangActivity extends AppCompatActivity {
     private void ToolbarBack() {
         tbGiohang = findViewById(R.id.tbGiohang);
         setSupportActionBar(tbGiohang);
+        ToolbarBack();
+    }
+
+    private void ToolbarBack() {
+        setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
