@@ -1,10 +1,7 @@
 package Activity;
 
-import static com.example.doan_mobileapp.R.id.imageView;
-
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
@@ -44,7 +41,7 @@ public class ChiTietActivity extends AppCompatActivity {
         Glide.with((ChiTietActivity.this))
                 .load(sp.getHinh())
                 .into(ivHinhSP);
-        txtGiasp.setText("$" + sp.getGia());
+        txtGiasp.setText(sp.getGia() + "đ");
         txtTensp.setText(sp.getTen());
         txtMotachitiet.setText(sp.getMota());
 
@@ -71,10 +68,10 @@ public class ChiTietActivity extends AppCompatActivity {
         btnTru=findViewById(R.id.btnTru);
         txtNumber=findViewById(R.id.txtNumber);
         btnCong=findViewById(R.id.btnCong);
-        ivHinhSP=findViewById(R.id.ivHinhSP);
+        ivHinhSP=findViewById(R.id.imgedtSP);
     }
     private void ToolbarBack() {
-        toolbar = findViewById(R.id.tbDetailSP);
+        toolbar = findViewById(R.id.tbEdit);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

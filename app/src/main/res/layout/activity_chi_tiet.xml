@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tbDetailSP"
+            android:id="@+id/tbEdit"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/red"
@@ -26,7 +26,7 @@
             android:src="@drawable/hamburger"
             android:layout_width="wrap_content"
             android:layout_height="300dp"
-            android:id="@+id/ivHinhSP"/>
+            android:id="@+id/imgedtSP"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -49,7 +49,7 @@
                 android:orientation="horizontal">
                 <TextView
                     android:text="Giá:"
-                    android:textColor="@color/orange2"
+                    android:textColor="@color/red"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                 <TextView
                     android:id="@+id/txtGiasp"
                     android:text="25.000 đ"
-                    android:textColor="@color/orange2"
+                    android:textColor="@color/red"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_width="match_parent"

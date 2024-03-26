@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.doan_mobileapp.R;
 
@@ -19,6 +20,7 @@ public class ThanhToanActivity extends AppCompatActivity {
     RecyclerView recycThanhtoan;
     ThanhToanAdapter thanhtoanAdapter;
     ArrayList<ThanhToan> arrTT;
+    Toolbar tbthanhtoan;
     //Toolbar tb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class ThanhToanActivity extends AppCompatActivity {
         
         addControl();
         loadData();
+        ToolbarBack();
     }
     private void loadData() {
         arrTT.add(new ThanhToan(1,"Thẻ ngân hàng",R.drawable.icon_google));
@@ -61,6 +64,10 @@ public class ThanhToanActivity extends AppCompatActivity {
             startActivity(it);
         }
     }
-
+    private void ToolbarBack() {
+        tbthanhtoan=findViewById(R.id.tbthanhtoan);
+        setSupportActionBar(tbthanhtoan);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
 }
