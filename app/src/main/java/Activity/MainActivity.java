@@ -114,6 +114,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent it = new Intent(MainActivity.this, NguoidungActivity.class);
             startActivity(it);
         }
+        else if(item.getItemId()== R.id.navLogout){
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, DangNhapActivity.class);
+            startActivity(intent);
+            finish();
+
+        }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -135,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(it);
             }
         });
-        
     }
     private void initBestfood() {
         DatabaseReference myRef = db.getReference("SanPham");

@@ -1,8 +1,12 @@
 package Activity;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import Activity.DangKyActivity;
 public class DangNhapActivity extends AppCompatActivity {
@@ -25,6 +30,7 @@ public class DangNhapActivity extends AppCompatActivity {
     Button btnSignIn;
     ImageView ivSIFB,ivSIGG;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,7 @@ public class DangNhapActivity extends AppCompatActivity {
         addEvent();
     }
     private void addControl() {
+        progressDialog = new ProgressDialog(this);
         edtSignIpUser=findViewById(R.id.edtSignInUser);
         edtSignInPass=findViewById(R.id.edtSignInPass);
         txtForgotPass=findViewById(R.id.txtForgotPass);
@@ -54,38 +61,33 @@ public class DangNhapActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nhanDangNhap();
+                  nhanDangNhap();
             }
         });
     }
     private void nhanDangNhap() {
-        Intent it = getIntent();
-        String email = it.getStringExtra("email");
-        edtSignIpUser.setText(email);
-        //email = edtSignIpUser.getText().toString().trim();
-        String password = edtSignInPass.getText().toString().trim();
+        String stremail = edtSignIpUser.getText().toString().trim();
+        String strpassword = edtSignInPass.getText().toString().trim();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        progressDialog.show();
+        auth.signInWithEmailAndPassword(stremail, strpassword)
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    progressDialog.dismiss();
+                    if (task.isSuccessful()) {
+                        Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finishAffinity();
 
-        if (TextUtils.isEmpty(email)){
-            Toast.makeText(DangNhapActivity.this,"Hãy nhập email",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(password)){
-            Toast.makeText(DangNhapActivity.this,"Hãy nhập mặt khẩu",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    Toast.makeText(DangNhapActivity.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(DangNhapActivity.this,MainActivity.class);
-                    startActivity(intent);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                        Toast.makeText(DangNhapActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    Toast.makeText(DangNhapActivity.this,"Đăng nhập thất bại",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+            });
     }
 }
 
