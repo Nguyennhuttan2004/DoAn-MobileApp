@@ -39,8 +39,7 @@ public class BestFoodAdapter extends RecyclerView.Adapter<BestFoodAdapter.viewho
     @Override
     public void onBindViewHolder(@NonNull BestFoodAdapter.viewholder holder, int position) {
         holder.txtSPtitle.setText(items.get(position).getTen());
-        holder.txtSPgia.setText("$"+items.get(position).getGia());
-        //holder.txtSPstar.setText(""+items.get(position).getStar());
+        holder.txtSPgia.setText(items.get(position).getGia() + "đ");
         SanPham sp = items.get(position);
         Glide.with(context)
                 .load(items.get(position).getHinh())

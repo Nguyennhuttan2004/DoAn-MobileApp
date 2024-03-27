@@ -3,6 +3,7 @@ package Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,13 +23,12 @@ import Helper.ManagmentGiohang;
 
 public class GioHangActivity extends AppCompatActivity {
     Toolbar tbGiohang;
-    TextView txtTotalFee,txtTax,txtDelivery,txtTotal,txtEmpty;
+    TextView txtTotalFee,txtDelivery,txtTotal,txtEmpty;
     Button btntt;
     RecyclerView rvGiohang;
     ScrollView scrollViewGH;
     private RecyclerView.Adapter adapter;
     private ManagmentGiohang managmentGiohang;
-    private double tax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,21 @@ public class GioHangActivity extends AppCompatActivity {
         setVariable();
         calculateCart();
         initList();
+        addEvent();
+    }
+
+    private void addEvent() {
+        btntt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoTT();
+            }
+        });
+    }
+
+    private void gotoTT() {
+        Intent it = new Intent(GioHangActivity.this, ThanhToanActivity.class);
+        startActivity(it);
     }
 
     private void initList() {
@@ -54,8 +69,7 @@ public class GioHangActivity extends AppCompatActivity {
             scrollViewGH.setVisibility(View.VISIBLE);
         }
 
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        rvGiohang.setLayoutManager(linearLayoutManager);
+        rvGiohang.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         adapter= new CartAdapter(managmentGiohang.getListCart(), this, new ChangeNumberItemsListener() {
             @Override
             public void change() {
@@ -65,16 +79,12 @@ public class GioHangActivity extends AppCompatActivity {
         rvGiohang.setAdapter(adapter);
     }
     private void calculateCart() {
-        double percentTax=0.02;
         double delivery=10;
 
-        tax=Math.round(managmentGiohang.getTotalFee()*percentTax*100.0)/100;
-
-        double total= Math.round((managmentGiohang.getTotalFee()+tax+delivery)*100)/100;
+        double total= Math.round((managmentGiohang.getTotalFee()+delivery)*100)/100;
         double itemTotal=Math.round(managmentGiohang.getTotalFee()*100)/100;
 
         txtTotalFee.setText(itemTotal+"đ");
-        txtTax.setText(tax+"đ");
         txtDelivery.setText(delivery+"đ");
         txtTotal.setText(total+"đ");
     }
@@ -88,7 +98,6 @@ public class GioHangActivity extends AppCompatActivity {
     }
     private void addControls() {
         txtTotalFee=findViewById(R.id.txtTotalFee);
-        txtTax=findViewById(R.id.txtTax);
         txtDelivery=findViewById(R.id.txtDelivery);
         txtTotal=findViewById(R.id.txtTotal);
         txtEmpty=findViewById(R.id.txtEmpty);

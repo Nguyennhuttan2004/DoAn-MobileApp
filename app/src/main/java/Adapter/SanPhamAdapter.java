@@ -20,36 +20,37 @@ import com.example.doan_mobileapp.R;
 import java.util.ArrayList;
 
 import Activity.ChiTietActivity;
+import Activity.EditActivity;
 import model.SanPham;
 
-
-public class DanhMucAdapter extends RecyclerView.Adapter<DanhMucAdapter.viewholder> {
+public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHolder> {
     ArrayList<SanPham> items;
     Context context;
-    public DanhMucAdapter(ArrayList<SanPham> items) {
+
+    public SanPhamAdapter(ArrayList<SanPham> items) {
         this.items = items;
     }
+
     @NonNull
     @Override
-    public DanhMucAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SanPhamAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context=parent.getContext();
-        View inflate = LayoutInflater.from(context).inflate(R.layout.viewholder_danhmuc,parent,false);
-        return new viewholder(inflate);
+        View inflate= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_bestfood,parent,false);
+        return new ViewHolder(inflate);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DanhMucAdapter.viewholder holder, int position) {
-        holder.txtDMtitle.setText(items.get(position).getTen());
-        holder.txtDMgia.setText(items.get(position).getGia() + "đ");
-        //holder.txtDMstar.setText(""+items.get(position).getStar());
-
+    public void onBindViewHolder(@NonNull SanPhamAdapter.ViewHolder holder, int position) {
+        holder.txtSPtitle.setText(items.get(position).getTen());
+        holder.txtSPgia.setText(items.get(position).getGia() + "đ");
+        SanPham sp = items.get(position);
         Glide.with(context)
                 .load(items.get(position).getHinh())
                 .transform(new CenterCrop(),new RoundedCorners(30))
-                .into(holder.imgDM);
+                .into(holder.imgSP);
 
         holder.itemView.setOnClickListener(v -> {
-            Intent it = new Intent(context, ChiTietActivity.class);
+            Intent it = new Intent(context, EditActivity.class);
             it.putExtra("sp",items.get(position));
             context.startActivity(it);
         });
@@ -60,17 +61,16 @@ public class DanhMucAdapter extends RecyclerView.Adapter<DanhMucAdapter.viewhold
         return items.size();
     }
 
-    public class viewholder extends RecyclerView.ViewHolder {
-        TextView txtDMtitle,txtDMgia;
-        ImageView imgDM;
-        //CardView danhmucitem;
-        public viewholder(@NonNull View itemView) {
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView txtSPtitle,txtSPgia;
+        ImageView imgSP;
+        CardView bestfooditem;
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtDMtitle = itemView.findViewById(R.id.txtDMtitle);
-            txtDMgia = itemView.findViewById(R.id.txtDMgia);
-            imgDM = itemView.findViewById(R.id.imgDM);
-            //danhmucitem = itemView.findViewById(R.id.danhmucitem);
+            txtSPtitle = itemView.findViewById(R.id.txtSPtitle);
+            txtSPgia = itemView.findViewById(R.id.txtSPgia);
+            imgSP = itemView.findViewById(R.id.imgSP);
+            bestfooditem = itemView.findViewById(R.id.bestfooditem);
         }
-
     }
 }
