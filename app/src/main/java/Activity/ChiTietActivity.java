@@ -44,7 +44,7 @@ public class ChiTietActivity extends AppCompatActivity {
         Glide.with((ChiTietActivity.this))
                 .load(sp.getHinh())
                 .into(ivHinhSP);
-        txtGiasp.setText("$" + sp.getGia());
+        txtGiasp.setText( sp.getGia()+"đ");
         txtTensp.setText(sp.getTen());
         txtMotachitiet.setText(sp.getMota());
 

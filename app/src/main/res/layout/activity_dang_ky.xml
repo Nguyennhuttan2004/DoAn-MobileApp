@@ -27,7 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Họ và tên"
-        android:inputType="text"
         android:textSize="18sp"
         android:paddingLeft="20dp"
         android:background="@drawable/edittext_background"
